@@ -53,6 +53,6 @@ logging:
 
 gemini:
   api-key: ${GEMINI_API_KEY}
-  api-url: https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent  # URL oficial do Google
+  api-url: https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent
   max-tokens: 8192
   temperature: 0.9

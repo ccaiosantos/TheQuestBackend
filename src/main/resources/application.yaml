@@ -1,11 +1,13 @@
 spring:
   application:
     name: TheQuestBack
+  profiles:
+    active: ${SPRING_PROFILES_ACTIVE:local}
 
   datasource:
-    url: ${DB_URL}
-    username: ${DB_USERNAME}
-    password: ${DB_PASSWORD}
+    url: ${SPRING_DATASOURCE_URL:jdbc:postgresql://localhost:5432/thequest}
+    username: ${SPRING_DATASOURCE_USERNAME:postgres}
+    password: ${SPRING_DATASOURCE_PASSWORD:}
     driver-class-name: org.postgresql.Driver
 
   jpa:
@@ -25,14 +27,12 @@ spring:
   jackson:
     default-property-inclusion: non_null
 
-
 server:
-  port: 8081
-
+  port: ${SERVER_PORT:8081}
 
 jwt:
   secret: ${JWT_SECRET}
-  expiration-ms: 86400000
+  expiration-ms: ${JWT_EXPIRATION_MS:86400000}
 
 springdoc:
   api-docs:
@@ -53,6 +53,6 @@ logging:
 
 gemini:
   api-key: ${GEMINI_API_KEY}
-  api-url: https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent
-  max-tokens: 8192
-  temperature: 0.9
+  api-url: ${GEMINI_API_URL:https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent}
+  max-tokens: ${GEMINI_MAX_TOKENS:8192}
+  temperature: ${GEMINI_TEMPERATURE:0.9}

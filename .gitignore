@@ -33,3 +33,11 @@ build/
 .vscode/
 
 .env
+.env.*
+!.env.example
+
+# Segredos locais do Spring
+src/main/resources/application-local.yaml
+src/main/resources/application-prod.yaml
+**/application-local.yml
+**/application-prod.yml

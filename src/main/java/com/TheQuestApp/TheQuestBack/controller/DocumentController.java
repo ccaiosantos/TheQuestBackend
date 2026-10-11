@@ -36,7 +36,7 @@ public class DocumentController {
     public ResponseEntity<List<Document>> list(@AuthenticationPrincipal User user ){
         return ResponseEntity.ok(documentService.getUserDocuments(user.getId()));
     }
-    @GetMapping
+    @GetMapping("/{id}")
     @Operation(summary = "Detalhes de um PDF")
     public ResponseEntity<Document> getById(@PathVariable Long id, @AuthenticationPrincipal User user){
         return ResponseEntity.ok(documentService.getDocumentById(id, user.getId()));
